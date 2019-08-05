@@ -168,12 +168,27 @@
                         <viewLayoutGuide key="safeArea" id="oTN-ZQ-sDG"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="aj0-Gf-mzh">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="P6F-9l-JdD"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="P6F-9l-JdD">
+                            <connections>
+                                <action selector="logoutPressed:" destination="ovb-o7-0Hm" id="wZV-dG-4EP"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_addpin" id="vIl-On-JO1" userLabel="Add Button"/>
-                            <barButtonItem image="icon_refresh" id="Y4F-av-JKv" userLabel="Refresh Button"/>
+                            <barButtonItem image="icon_addpin" id="vIl-On-JO1" userLabel="Add Button">
+                                <connections>
+                                    <action selector="addPinPressed:" destination="ovb-o7-0Hm" id="KoI-mX-7fn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_refresh" id="Y4F-av-JKv" userLabel="Refresh Button">
+                                <connections>
+                                    <action selector="refreshPinsPressed:" destination="ovb-o7-0Hm" id="GF5-bR-3zW"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="W6n-26-XcF" id="Tx1-fn-H23"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQC-By-PgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

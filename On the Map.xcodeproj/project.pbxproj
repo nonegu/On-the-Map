@@ -83,6 +83,7 @@
 		B68069F522F8291D007FED80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6806A0C22F8518F007FED80 /* Data */,
 				B68069FB22F829DB007FED80 /* Udacity Client */,
 				B68069FA22F829BF007FED80 /* API Requests */,
 				B68069F922F8299A007FED80 /* API Responses */,
@@ -142,6 +143,13 @@
 				B68069FC22F82A44007FED80 /* UdacityClient.swift */,
 			);
 			path = "Udacity Client";
+			sourceTree = "<group>";
+		};
+		B6806A0C22F8518F007FED80 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

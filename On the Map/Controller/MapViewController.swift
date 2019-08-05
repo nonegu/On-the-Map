@@ -11,5 +11,21 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    // MARK: Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    
+    override func viewDidLoad() {
+        
+    }
+    
+    @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func refreshPinsPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+    }
+    
 }
 
