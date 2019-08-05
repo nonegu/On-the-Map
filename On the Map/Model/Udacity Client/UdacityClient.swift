@@ -18,11 +18,14 @@ class UdacityClient {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case login
+        case studentLocations(Int)
         
         var stringValue: String {
             switch self {
             case .login:
                 return Endpoints.base + "/session"
+            case .studentLocations(let result):
+                return Endpoints.base + "/StudentLocation" + "?limit=\(result)"
             }
         }
         
@@ -61,4 +64,21 @@ class UdacityClient {
         task.resume()
     }
     
+    class func getStudentLocations(result: Int, completion: @escaping ([StudentLocation]?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.studentLocations(result).url) { (data, response, error) in
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let response = try decoder.decode(LocationResults.self, from: data)
+                completion(response.results, nil)
+            } catch {
+                completion(nil,error)
+            }
+        }
+        task.resume()
+    }
 }

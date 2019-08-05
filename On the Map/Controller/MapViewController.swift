@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
-        
+        UdacityClient.getStudentLocations(result: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
@@ -25,6 +25,14 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    func handleStudentLocationsResponse(locations: [StudentLocation]?, error: Error?) {
+        if error != nil {
+            print(error!)
+        } else {
+            print(locations!)
+        }
     }
     
 }
