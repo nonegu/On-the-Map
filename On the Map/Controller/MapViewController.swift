@@ -28,13 +28,14 @@ class MapViewController: UIViewController {
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
     }
     
-    func handleStudentLocationsResponse(locations: [StudentLocation]?, error: Error?) {
+    func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
         guard let locations = locations else {
             print(error!)
             return
         }
         
         LocationModel.studentLocations = locations
+        print(locations)
         
         for location in locations {
             let annotation = MKPointAnnotation()

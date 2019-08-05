@@ -25,7 +25,7 @@ class UdacityClient {
             case .login:
                 return Endpoints.base + "/session"
             case .studentLocations(let result):
-                return Endpoints.base + "/StudentLocation" + "?limit=\(result)"
+                return Endpoints.base + "/StudentLocation" + "?limit=\(result)" + "?order=-updatedAt"
             }
         }
         
@@ -64,7 +64,7 @@ class UdacityClient {
         task.resume()
     }
     
-    class func getStudentLocations(resultOf: Int, completion: @escaping ([StudentLocation]?, Error?) -> Void) {
+    class func getStudentLocations(resultOf: Int, completion: @escaping ([StudentInformation]?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: Endpoints.studentLocations(resultOf).url) { (data, response, error) in
             guard let data = data else {
                 completion(nil, error)
