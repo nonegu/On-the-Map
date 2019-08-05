@@ -18,6 +18,8 @@
 		B6806A0322F82E11007FED80 /* AccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0222F82E11007FED80 /* AccountRequest.swift */; };
 		B6806A0522F82F8E007FED80 /* AccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0422F82F8E007FED80 /* AccountResponse.swift */; };
 		B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0622F82F98007FED80 /* SessionResponse.swift */; };
+		B6806A0922F840E0007FED80 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0822F840E0007FED80 /* MapViewController.swift */; };
+		B6806A0B22F840F6007FED80 /* TableTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B6806A0222F82E11007FED80 /* AccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRequest.swift; sourceTree = "<group>"; };
 		B6806A0422F82F8E007FED80 /* AccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountResponse.swift; sourceTree = "<group>"; };
 		B6806A0622F82F98007FED80 /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		B6806A0822F840E0007FED80 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTabbedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				B68069E522F81164007FED80 /* LoginViewController.swift */,
+				B6806A0822F840E0007FED80 /* MapViewController.swift */,
+				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -213,10 +219,12 @@
 				B68069E422F81164007FED80 /* AppDelegate.swift in Sources */,
 				B68069FD22F82A44007FED80 /* UdacityClient.swift in Sources */,
 				B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */,
+				B6806A0922F840E0007FED80 /* MapViewController.swift in Sources */,
 				B68069FF22F82AAB007FED80 /* LoginRequest.swift in Sources */,
 				B6806A0122F82C57007FED80 /* LoginResponse.swift in Sources */,
 				B6806A0522F82F8E007FED80 /* AccountResponse.swift in Sources */,
 				B6806A0322F82E11007FED80 /* AccountRequest.swift in Sources */,
+				B6806A0B22F840F6007FED80 /* TableTabbedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
