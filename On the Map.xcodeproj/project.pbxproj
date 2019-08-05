@@ -54,14 +54,46 @@
 		B68069E222F81164007FED80 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
-				B68069E322F81164007FED80 /* AppDelegate.swift */,
-				B68069E522F81164007FED80 /* LoginViewController.swift */,
-				B68069E722F81164007FED80 /* Main.storyboard */,
-				B68069EA22F81165007FED80 /* Assets.xcassets */,
-				B68069EC22F81165007FED80 /* LaunchScreen.storyboard */,
 				B68069EF22F81165007FED80 /* Info.plist */,
+				B68069E322F81164007FED80 /* AppDelegate.swift */,
+				B68069F522F8291D007FED80 /* Model */,
+				B68069F722F8292F007FED80 /* Controller */,
+				B68069F622F8292A007FED80 /* View */,
+				B68069F822F8295A007FED80 /* Assets */,
 			);
 			path = "On the Map";
+			sourceTree = "<group>";
+		};
+		B68069F522F8291D007FED80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68069F622F8292A007FED80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B68069E722F81164007FED80 /* Main.storyboard */,
+				B68069EC22F81165007FED80 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B68069F722F8292F007FED80 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B68069E522F81164007FED80 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B68069F822F8295A007FED80 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B68069EA22F81165007FED80 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
