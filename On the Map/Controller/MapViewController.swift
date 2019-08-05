@@ -15,7 +15,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
-        UdacityClient.getStudentLocations(result: 100, completion: handleStudentLocationsResponse(locations:error:))
+        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
@@ -28,10 +28,21 @@ class MapViewController: UIViewController {
     }
     
     func handleStudentLocationsResponse(locations: [StudentLocation]?, error: Error?) {
-        if error != nil {
+        guard let locations = locations else {
             print(error!)
-        } else {
-            print(locations!)
+            return
+        }
+        
+        for location in locations {
+            let annotation = MKPointAnnotation()
+            annotation.title = location.firstName + location.lastName
+            annotation.subtitle = location.mediaURL
+            let latitude = CLLocationDegrees(location.latitude)
+            let longitude = CLLocationDegrees(location.longitude)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            DispatchQueue.main.async {
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     

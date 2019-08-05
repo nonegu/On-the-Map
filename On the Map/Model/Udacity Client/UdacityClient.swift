@@ -64,8 +64,8 @@ class UdacityClient {
         task.resume()
     }
     
-    class func getStudentLocations(result: Int, completion: @escaping ([StudentLocation]?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: Endpoints.studentLocations(result).url) { (data, response, error) in
+    class func getStudentLocations(resultOf: Int, completion: @escaping ([StudentLocation]?, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.studentLocations(resultOf).url) { (data, response, error) in
             guard let data = data else {
                 completion(nil, error)
                 return
