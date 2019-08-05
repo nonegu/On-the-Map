@@ -33,6 +33,8 @@ class MapViewController: UIViewController {
             return
         }
         
+        LocationModel.studentLocations = locations
+        
         for location in locations {
             let annotation = MKPointAnnotation()
             annotation.title = location.firstName + location.lastName
