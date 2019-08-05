@@ -271,6 +271,7 @@
                                         <state key="normal" title="FIND LOCATION"/>
                                         <connections>
                                             <action selector="findLocationPressed:" destination="0lh-pm-BXr" eventType="touchUpInside" id="4Y4-Eq-QGY"/>
+                                            <segue destination="4pO-M3-rcd" kind="show" identifier="showLocation" id="nzw-ru-P3S"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -305,6 +306,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcW-DA-4YB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5128" y="-3"/>
+        </scene>
+        <!--Add Location-->
+        <scene sceneID="Qb4-e5-eSH">
+            <objects>
+                <viewController title="Add Location" id="4pO-M3-rcd" customClass="AddLocationViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aDD-S0-KcH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B37-mz-VTx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLp-MF-eHr" userLabel="Finish Button">
+                                <rect key="frame" x="40" y="818" width="334" height="50"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.64692609710000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jly-xw-MCg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="FINISH"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B37-mz-VTx" firstAttribute="leading" secondItem="aDD-S0-KcH" secondAttribute="leading" id="2ME-kn-tJn"/>
+                            <constraint firstItem="B37-mz-VTx" firstAttribute="trailing" secondItem="aDD-S0-KcH" secondAttribute="trailing" id="SGd-7J-dvK"/>
+                            <constraint firstItem="B37-mz-VTx" firstAttribute="top" secondItem="L0G-4d-Umd" secondAttribute="top" id="Wwb-5E-Wuh"/>
+                            <constraint firstItem="L0G-4d-Umd" firstAttribute="trailing" secondItem="ZLp-MF-eHr" secondAttribute="trailing" constant="40" id="kUF-Lp-sYy"/>
+                            <constraint firstItem="ZLp-MF-eHr" firstAttribute="leading" secondItem="L0G-4d-Umd" secondAttribute="leading" constant="40" id="kzl-l6-C8e"/>
+                            <constraint firstAttribute="bottom" secondItem="B37-mz-VTx" secondAttribute="bottom" id="rlY-HI-tI9"/>
+                            <constraint firstAttribute="bottom" secondItem="ZLp-MF-eHr" secondAttribute="bottom" constant="28" id="vt0-lc-pU9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L0G-4d-Umd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cRC-O1-PmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5940.579710144928" y="-3.3482142857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P04-HY-Aey">

@@ -24,6 +24,7 @@
 		B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0F22F855E8007FED80 /* LocationModel.swift */; };
 		B6806A1222F85728007FED80 /* LocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1122F85728007FED80 /* LocationResults.swift */; };
 		B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1322F866F2007FED80 /* FindLocationViewController.swift */; };
+		B6806A1622F86F93007FED80 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1522F86F93007FED80 /* AddLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B6806A0F22F855E8007FED80 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		B6806A1122F85728007FED80 /* LocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResults.swift; sourceTree = "<group>"; };
 		B6806A1322F866F2007FED80 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
+		B6806A1522F86F93007FED80 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				B6806A0822F840E0007FED80 /* MapViewController.swift */,
 				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
 				B6806A1322F866F2007FED80 /* FindLocationViewController.swift */,
+				B6806A1522F86F93007FED80 /* AddLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6806A1622F86F93007FED80 /* AddLocationViewController.swift in Sources */,
 				B6806A1222F85728007FED80 /* LocationResults.swift in Sources */,
 				B68069E622F81164007FED80 /* LoginViewController.swift in Sources */,
 				B68069E422F81164007FED80 /* AppDelegate.swift in Sources */,
