@@ -23,6 +23,7 @@
 		B6806A0E22F851F2007FED80 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0D22F851F2007FED80 /* StudentLocation.swift */; };
 		B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A0F22F855E8007FED80 /* LocationModel.swift */; };
 		B6806A1222F85728007FED80 /* LocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1122F85728007FED80 /* LocationResults.swift */; };
+		B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1322F866F2007FED80 /* FindLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B6806A0D22F851F2007FED80 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		B6806A0F22F855E8007FED80 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		B6806A1122F85728007FED80 /* LocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResults.swift; sourceTree = "<group>"; };
+		B6806A1322F866F2007FED80 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				B68069E522F81164007FED80 /* LoginViewController.swift */,
 				B6806A0822F840E0007FED80 /* MapViewController.swift */,
 				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
+				B6806A1322F866F2007FED80 /* FindLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				B68069FD22F82A44007FED80 /* UdacityClient.swift in Sources */,
 				B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */,
 				B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */,
+				B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */,
 				B6806A0922F840E0007FED80 /* MapViewController.swift in Sources */,
 				B68069FF22F82AAB007FED80 /* LoginRequest.swift in Sources */,
 				B6806A0122F82C57007FED80 /* LoginResponse.swift in Sources */,
