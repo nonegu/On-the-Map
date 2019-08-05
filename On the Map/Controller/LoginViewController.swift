@@ -23,6 +23,15 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
+        UdacityClient.getLoginResponse(username: emailTextField.text!, password: passwordTextField.text!, completion: handleLoginResponse(success:error:))
+    }
+    
+    func handleLoginResponse(success: Bool, error: Error?) {
+        if success {
+            print("successfully logged in")
+        } else {
+            print(error!)
+        }
     }
     
 }
