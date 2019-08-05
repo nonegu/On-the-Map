@@ -271,7 +271,6 @@
                                         <state key="normal" title="FIND LOCATION"/>
                                         <connections>
                                             <action selector="findLocationPressed:" destination="0lh-pm-BXr" eventType="touchUpInside" id="4Y4-Eq-QGY"/>
-                                            <segue destination="4pO-M3-rcd" kind="show" identifier="showLocation" id="nzw-ru-P3S"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -296,11 +295,16 @@
                         <viewLayoutGuide key="safeArea" id="IXT-fY-uor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="l2X-v3-42x">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="da5-KF-LJW"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="da5-KF-LJW">
+                            <connections>
+                                <action selector="cancelPressed:" destination="0lh-pm-BXr" id="AEQ-2A-Bju"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="locationTextField" destination="2pf-wO-nIn" id="taD-lF-dmv"/>
                         <outlet property="mediaTextField" destination="21a-ld-2ZM" id="mTs-bm-TWX"/>
+                        <segue destination="4pO-M3-rcd" kind="show" identifier="addLocation" id="fxI-X2-pfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcW-DA-4YB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,7 +314,7 @@
         <!--Add Location-->
         <scene sceneID="Qb4-e5-eSH">
             <objects>
-                <viewController title="Add Location" id="4pO-M3-rcd" customClass="AddLocationViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addLocationViewController" title="Add Location" id="4pO-M3-rcd" customClass="AddLocationViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDD-S0-KcH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,6 +416,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bgz-S7-bEt"/>
+        <segue reference="U72-RI-wya"/>
     </inferredMetricsTieBreakers>
 </document>

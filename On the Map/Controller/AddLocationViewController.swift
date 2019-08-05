@@ -10,4 +10,11 @@ import UIKit
 
 class AddLocationViewController: UIViewController {
     
+    var searchText: String!
+    var mediaURL: String!
+    
+    override func viewDidLoad() {
+        print(searchText, mediaURL)
+    }
+    
 }

@@ -19,6 +19,19 @@ class FindLocationViewController: UIViewController {
     }
     
     @IBAction func findLocationPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "addLocation", sender: self)
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addLocation" {
+            let addLocationVC = segue.destination as! AddLocationViewController
+            addLocationVC.searchText = locationTextField.text
+            addLocationVC.mediaURL = mediaTextField.text
+        }
     }
     
 }
