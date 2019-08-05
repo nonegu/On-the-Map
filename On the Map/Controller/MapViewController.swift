@@ -22,6 +22,7 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func refreshPinsPressed(_ sender: UIBarButtonItem) {
+        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
