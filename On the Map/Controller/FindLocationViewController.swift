@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FindLocationViewController: UIViewController {
     
@@ -14,12 +15,27 @@ class FindLocationViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var mediaTextField: UITextField!
     
+    var placemark: CLPlacemark?
+    
     override func viewDidLoad() {
         
     }
     
     @IBAction func findLocationPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "addLocation", sender: self)
+        guard let locationText = locationTextField.text else {
+            return
+        }
+        
+        CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
+            guard let placemarks = placemarks else {
+                print(error!)
+                return
+            }
+            self.placemark = placemarks.first
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "addLocation", sender: self)
+            }
+        }
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
@@ -29,8 +45,7 @@ class FindLocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addLocation" {
             let addLocationVC = segue.destination as! AddLocationViewController
-            addLocationVC.searchText = locationTextField.text
-            addLocationVC.mediaURL = mediaTextField.text
+            addLocationVC.placemark = placemark!
         }
     }
     

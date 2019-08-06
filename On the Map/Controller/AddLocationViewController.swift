@@ -11,17 +11,10 @@ import MapKit
 
 class AddLocationViewController: UIViewController {
     
-    var searchText: String!
-    var mediaURL: String!
+    var placemark: CLPlacemark!
     
     override func viewDidLoad() {
-        CLGeocoder().geocodeAddressString(searchText) { (placemark, error) in
-            guard let placemark = placemark else {
-                print(error!)
-                return
-            }
-            print(placemark.first?.location?.coordinate as Any)
-        }
+        print(placemark.location?.coordinate as Any)
     }
     
 }
