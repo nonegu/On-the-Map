@@ -18,13 +18,13 @@ class UdacityClient {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case login
-        case studentLocations(Int)
+        case getStudentLocations(Int)
         
         var stringValue: String {
             switch self {
             case .login:
                 return Endpoints.base + "/session"
-            case .studentLocations(let result):
+            case .getStudentLocations(let result):
                 return Endpoints.base + "/StudentLocation" + "?limit=\(result)" + "?order=-updatedAt"
             }
         }
@@ -34,7 +34,7 @@ class UdacityClient {
         }
     }
     
-    class func getLoginResponse(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: Endpoints.login.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -65,7 +65,7 @@ class UdacityClient {
     }
     
     class func getStudentLocations(resultOf: Int, completion: @escaping ([StudentInformation]?, Error?) -> Void) {
-        let task = URLSession.shared.dataTask(with: Endpoints.studentLocations(resultOf).url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: Endpoints.getStudentLocations(resultOf).url) { (data, response, error) in
             guard let data = data else {
                 completion(nil, error)
                 return
