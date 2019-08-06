@@ -11,4 +11,5 @@ import Foundation
 class LocationModel {
     static var studentLocations = [StudentInformation]()
     static var userLocation: StudentInformation?
+    static var userObjectId: String?
 }
