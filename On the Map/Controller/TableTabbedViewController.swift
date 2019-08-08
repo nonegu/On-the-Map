@@ -22,7 +22,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
         if LocationModel.userObjectId != nil {
-            showUpdateWarning()
+            showUpdateWarning(segueIdentifier: "addLocationFromTable")
         } else {
             performSegue(withIdentifier: "addLocationFromTable", sender: nil)
         }

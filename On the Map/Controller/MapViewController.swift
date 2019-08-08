@@ -14,13 +14,19 @@ class MapViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     
+    var annotations = [MKPointAnnotation]()
+    
     override func viewDidLoad() {
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
         if LocationModel.userObjectId != nil {
-            showUpdateWarning()
+            showUpdateWarning(segueIdentifier: "addLocation")
         } else {
             performSegue(withIdentifier: "addLocation", sender: nil)
         }
@@ -41,8 +47,18 @@ class MapViewController: UIViewController {
         
         LocationModel.studentLocations = locations
         print(locations)
+        updateAnnotations(with: locations)
         
-        var annotations = [MKPointAnnotation]()
+    }
+    
+    func updateAnnotations(with locations: [StudentInformation]) {
+    
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.annotations)
+        }
+        
+        annotations = []
+        
         for location in locations {
             let annotation = MKPointAnnotation()
             annotation.title = "\(location.firstName) \(location.lastName)"
@@ -51,9 +67,9 @@ class MapViewController: UIViewController {
             let longitude = CLLocationDegrees(location.longitude)
             annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             annotations.append(annotation)
-            }
+        }
         DispatchQueue.main.async {
-            self.mapView.addAnnotations(annotations)
+            self.mapView.addAnnotations(self.annotations)
         }
     }
     
