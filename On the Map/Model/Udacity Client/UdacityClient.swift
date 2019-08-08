@@ -50,7 +50,9 @@ class UdacityClient {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else
             {
-                completion(false, error)
+                DispatchQueue.main.async {
+                    completion(false, error)
+                }
                 return
             }
             // According to the documentation
@@ -62,9 +64,20 @@ class UdacityClient {
             do {
                 let response = try decoder.decode(LoginResponse.self, from: newData)
                 Auth.sessionId = response.session.id
-                completion(true, nil)
+                DispatchQueue.main.async {
+                    completion(true, nil)
+                }
             } catch {
-                completion(false, error)
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    DispatchQueue.main.async {
+                        completion(false, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(false, error)
+                    }
+                }
             }
         }
         task.resume()

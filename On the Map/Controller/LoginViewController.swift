@@ -32,8 +32,14 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "completeLogin", sender: nil)
             }
         } else {
-            print(error!)
+            showLoginFailure(message: error?.localizedDescription ?? "")
         }
+    }
+    
+    func showLoginFailure(message: String) {
+        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
 }
