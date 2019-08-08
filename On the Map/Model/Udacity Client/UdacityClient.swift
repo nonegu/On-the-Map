@@ -21,6 +21,7 @@ class UdacityClient {
         case getStudentLocations(Int)
         case markUserLocation
         case updateUserLocation
+        case logout
         
         var stringValue: String {
             switch self {
@@ -32,6 +33,8 @@ class UdacityClient {
                 return Endpoints.base + "/StudentLocation"
             case .updateUserLocation:
                 return Endpoints.base + "/StudentLocation/\(LocationModel.userObjectId!)"
+            case .logout:
+                return Endpoints.base + "/session"
             }
         }
         
@@ -77,6 +80,49 @@ class UdacityClient {
                     DispatchQueue.main.async {
                         completion(false, error)
                     }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    class func logout(completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.logout.url)
+        request.httpMethod = "DELETE"
+        
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(false, error)
+                }
+                return
+            }
+            
+            // According to the documentation
+            // first 5 characters should be removed from the data
+            let range = 5..<data.count
+            let newData = data.subdata(in: range)
+            
+            let decoder = JSONDecoder()
+            do {
+                let _ = try decoder.decode(LogoutResponse.self, from: newData)
+                DispatchQueue.main.async {
+                    completion(true, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(false, error)
                 }
             }
         }

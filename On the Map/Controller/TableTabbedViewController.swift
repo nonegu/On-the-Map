@@ -38,6 +38,19 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         getStudentLocations()
     }
     
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        UdacityClient.logout { (success, error) in
+            if success {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            } else {
+                self.presentError(title: "Logout Error", with: error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
+    
     // MARK: Student Locations' GET Methods
     func getStudentLocations() {
         activityIndicator.startAnimating()

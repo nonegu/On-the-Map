@@ -155,7 +155,11 @@
                         <viewLayoutGuide key="safeArea" id="gd6-Sk-rJY"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the Map" id="TIY-yB-M1M">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="xbh-Bv-FVC"/>
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="xbh-Bv-FVC">
+                            <connections>
+                                <action selector="logoutPressed:" destination="JsG-06-Bl8" id="NL8-py-X92"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="icon_addpin" id="dd9-VN-hyG" userLabel="Add Button">
                                 <connections>
