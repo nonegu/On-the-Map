@@ -85,7 +85,7 @@ class UdacityClient {
         task.resume()
     }
     
-    class func markUserLocation(body: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
+    class func markUserLocation(body: UserLocationRequest, completion: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: Endpoints.markUserLocation.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

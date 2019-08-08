@@ -337,6 +337,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="FINISH"/>
+                                <connections>
+                                    <action selector="finishPressed:" destination="4pO-M3-rcd" eventType="touchUpInside" id="uWx-jy-lsO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

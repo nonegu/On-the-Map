@@ -46,6 +46,8 @@ class FindLocationViewController: UIViewController {
         if segue.identifier == "addLocation" {
             let addLocationVC = segue.destination as! AddLocationViewController
             addLocationVC.placemark = placemark!
+            addLocationVC.mediaUrl = mediaTextField.text
+            addLocationVC.mapString = locationTextField.text
         }
     }
     

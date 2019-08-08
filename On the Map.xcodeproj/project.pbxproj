@@ -26,6 +26,7 @@
 		B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1322F866F2007FED80 /* FindLocationViewController.swift */; };
 		B6806A1622F86F93007FED80 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1522F86F93007FED80 /* AddLocationViewController.swift */; };
 		B6A43A9C22F9998A00F6E31B /* AddLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A43A9B22F9998A00F6E31B /* AddLocationResponse.swift */; };
+		B6A43A9E22F9A16900F6E31B /* UserLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A43A9D22F9A16900F6E31B /* UserLocationRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B6806A1322F866F2007FED80 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		B6806A1522F86F93007FED80 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		B6A43A9B22F9998A00F6E31B /* AddLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationResponse.swift; sourceTree = "<group>"; };
+		B6A43A9D22F9A16900F6E31B /* UserLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				B6806A0222F82E11007FED80 /* AccountRequest.swift */,
 				B68069FE22F82AAB007FED80 /* LoginRequest.swift */,
+				B6A43A9D22F9A16900F6E31B /* UserLocationRequest.swift */,
 			);
 			path = "API Requests";
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				B6806A0322F82E11007FED80 /* AccountRequest.swift in Sources */,
 				B6806A0E22F851F2007FED80 /* StudentInformation.swift in Sources */,
 				B6806A0B22F840F6007FED80 /* TableTabbedViewController.swift in Sources */,
+				B6A43A9E22F9A16900F6E31B /* UserLocationRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
