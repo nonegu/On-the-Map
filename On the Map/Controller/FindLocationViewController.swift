@@ -17,6 +17,9 @@ class FindLocationViewController: UIViewController {
     
     var placemark: CLPlacemark?
     
+    // activityIndicator can only be initiated as lazy, since it requires view to be loaded.
+    lazy var activityIndicator = createActivityIndicatorView()
+    
     override func viewDidLoad() {
         
     }
@@ -28,13 +31,27 @@ class FindLocationViewController: UIViewController {
                 return
             }
             
+            activityIndicator.startAnimating()
+            view.addSubview(activityIndicator)
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
             CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
                 guard let placemarks = placemarks else {
-                    self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.view.addSubview(self.activityIndicator)
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        
+                        self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
+                    }
                     return
                 }
                 self.placemark = placemarks.first
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.view.addSubview(self.activityIndicator)
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    
                     self.performSegue(withIdentifier: "addLocation", sender: self)
                 }
             }
