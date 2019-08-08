@@ -19,6 +19,11 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
+        if LocationModel.userObjectId != nil {
+            showUpdateWarning()
+        } else {
+            performSegue(withIdentifier: "addLocation", sender: nil)
+        }
     }
     
     @IBAction func refreshPinsPressed(_ sender: UIBarButtonItem) {
@@ -48,6 +53,17 @@ class MapViewController: UIViewController {
                 self.mapView.addAnnotation(annotation)
             }
         }
+    }
+    
+    func showUpdateWarning() {
+        let alertVC = UIAlertController(title: "Your location is already posted", message: "Do you want to update your location?", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Update", style: .default, handler: { (alert) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "addLocation", sender: nil)
+            }
+        }))
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
 }

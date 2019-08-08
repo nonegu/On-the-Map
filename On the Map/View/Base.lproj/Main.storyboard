@@ -207,7 +207,6 @@
                             <barButtonItem image="icon_addpin" id="vIl-On-JO1" userLabel="Add Button">
                                 <connections>
                                     <action selector="addPinPressed:" destination="ovb-o7-0Hm" id="KoI-mX-7fn"/>
-                                    <segue destination="ppd-6t-8c4" kind="presentation" id="U72-RI-wya"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="icon_refresh" id="Y4F-av-JKv" userLabel="Refresh Button">
@@ -219,6 +218,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="W6n-26-XcF" id="Tx1-fn-H23"/>
+                        <segue destination="ppd-6t-8c4" kind="presentation" identifier="addLocation" id="k0r-kU-Z3i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQC-By-PgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -428,6 +428,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U72-RI-wya"/>
+        <segue reference="k0r-kU-Z3i"/>
     </inferredMetricsTieBreakers>
 </document>

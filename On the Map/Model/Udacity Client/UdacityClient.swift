@@ -20,6 +20,7 @@ class UdacityClient {
         case login
         case getStudentLocations(Int)
         case markUserLocation
+        case updateUserLocation
         
         var stringValue: String {
             switch self {
@@ -29,6 +30,8 @@ class UdacityClient {
                 return Endpoints.base + "/StudentLocation" + "?order=-updatedAt" + "&limit=\(result)"
             case .markUserLocation:
                 return Endpoints.base + "/StudentLocation"
+            case .updateUserLocation:
+                return Endpoints.base + "/StudentLocation/\(LocationModel.userObjectId!)"
             }
         }
         
@@ -102,6 +105,30 @@ class UdacityClient {
             do {
                 let response = try decoder.decode(AddLocationResponse.self, from: data)
                 LocationModel.userObjectId = response.objectId
+                completion(true, nil)
+            } catch {
+                completion(false, error)
+            }
+        }
+        task.resume()
+    }
+    
+    class func updateUserLocation(body: UserLocationRequest, completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.updateUserLocation.url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completion(false, error)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let _ = try decoder.decode(UpdateLocationResponse.self, from: data)
                 completion(true, nil)
             } catch {
                 completion(false, error)

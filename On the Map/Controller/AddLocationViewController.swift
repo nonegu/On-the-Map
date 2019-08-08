@@ -32,10 +32,14 @@ class AddLocationViewController: UIViewController {
         // Storing the objectId of posted user location, would help when updating it
         // UserDefaults could be used for such small data.
         let body = UserLocationRequest(uniqueKey: "1234", firstName: "Hugh", lastName: "Laurie", mapString: mapString, mediaURL: mediaUrl, latitude: coordinate.latitude, longitude: coordinate.longitude)
-        UdacityClient.markUserLocation(body: body, completion: handleMarkUserLocationResponse(success:error:))
+        if LocationModel.userObjectId == nil {
+            UdacityClient.markUserLocation(body: body, completion: handleUserLocationResponse(success:error:))
+        } else {
+            UdacityClient.updateUserLocation(body: body, completion: handleUserLocationResponse(success:error:))
+        }
     }
     
-    func handleMarkUserLocationResponse(success: Bool, error: Error?) {
+    func handleUserLocationResponse(success: Bool, error: Error?) {
         if success {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)

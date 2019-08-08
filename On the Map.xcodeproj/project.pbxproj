@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */; };
 		B68069E422F81164007FED80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E322F81164007FED80 /* AppDelegate.swift */; };
 		B68069E622F81164007FED80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E522F81164007FED80 /* LoginViewController.swift */; };
 		B68069E922F81164007FED80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68069E722F81164007FED80 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationResponse.swift; sourceTree = "<group>"; };
 		B68069E022F81164007FED80 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68069E322F81164007FED80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68069E522F81164007FED80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				B6806A0622F82F98007FED80 /* SessionResponse.swift */,
 				B6806A0022F82C57007FED80 /* LoginResponse.swift */,
 				B6A43A9B22F9998A00F6E31B /* AddLocationResponse.swift */,
+				B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				B68069E422F81164007FED80 /* AppDelegate.swift in Sources */,
 				B68069FD22F82A44007FED80 /* UdacityClient.swift in Sources */,
 				B6A43A9C22F9998A00F6E31B /* AddLocationResponse.swift in Sources */,
+				B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */,
 				B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */,
 				B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */,
 				B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */,
