@@ -162,7 +162,11 @@
                                     <action selector="addPinPressed:" destination="JsG-06-Bl8" id="0sT-q1-g24"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="ZAf-zo-r5Y" userLabel="Refresh Button"/>
+                            <barButtonItem image="icon_refresh" id="ZAf-zo-r5Y" userLabel="Refresh Button">
+                                <connections>
+                                    <action selector="refreshPressed:" destination="JsG-06-Bl8" id="Mez-zJ-gYy"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

@@ -28,6 +28,11 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
+        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
+    }
+    
+    
     // MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LocationModel.studentLocations.count
@@ -54,6 +59,18 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         let urlString = cell?.detailTextLabel?.text
         if let url = URL(string: urlString!) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
+        guard let locations = locations else {
+            print(error!)
+            return
+        }
+        
+        LocationModel.studentLocations = locations
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
