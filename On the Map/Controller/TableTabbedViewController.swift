@@ -20,6 +20,14 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
     }
     
+    @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
+        if LocationModel.userObjectId != nil {
+            showUpdateWarning()
+        } else {
+            performSegue(withIdentifier: "addLocationFromTable", sender: nil)
+        }
+    }
+    
     // MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LocationModel.studentLocations.count
@@ -47,6 +55,18 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         if let url = URL(string: urlString!) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+    
+    // MARK: Alert Controller
+    func showUpdateWarning() {
+        let alertVC = UIAlertController(title: "Your location is already posted", message: "Do you want to update your location?", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Update", style: .default, handler: { (alert) in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "addLocationFromTable", sender: nil)
+            }
+        }))
+        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
 }
