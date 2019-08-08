@@ -42,16 +42,18 @@ class MapViewController: UIViewController {
         LocationModel.studentLocations = locations
         print(locations)
         
+        var annotations = [MKPointAnnotation]()
         for location in locations {
             let annotation = MKPointAnnotation()
-            annotation.title = location.firstName + location.lastName
+            annotation.title = "\(location.firstName) \(location.lastName)"
             annotation.subtitle = location.mediaURL
             let latitude = CLLocationDegrees(location.latitude)
             let longitude = CLLocationDegrees(location.longitude)
             annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            DispatchQueue.main.async {
-                self.mapView.addAnnotation(annotation)
+            annotations.append(annotation)
             }
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(annotations)
         }
     }
     

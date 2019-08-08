@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */; };
+		B67764BF22FC3CA100420041 /* MapViewController+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */; };
 		B68069E422F81164007FED80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E322F81164007FED80 /* AppDelegate.swift */; };
 		B68069E622F81164007FED80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E522F81164007FED80 /* LoginViewController.swift */; };
 		B68069E922F81164007FED80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68069E722F81164007FED80 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationResponse.swift; sourceTree = "<group>"; };
+		B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Annotation.swift"; sourceTree = "<group>"; };
 		B68069E022F81164007FED80 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68069E322F81164007FED80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68069E522F81164007FED80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				B68069E522F81164007FED80 /* LoginViewController.swift */,
 				B6806A0822F840E0007FED80 /* MapViewController.swift */,
+				B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */,
 				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
 				B6806A1322F866F2007FED80 /* FindLocationViewController.swift */,
 				B6806A1522F86F93007FED80 /* AddLocationViewController.swift */,
@@ -262,6 +265,7 @@
 				B6806A0122F82C57007FED80 /* LoginResponse.swift in Sources */,
 				B6806A0522F82F8E007FED80 /* AccountResponse.swift in Sources */,
 				B6806A0322F82E11007FED80 /* AccountRequest.swift in Sources */,
+				B67764BF22FC3CA100420041 /* MapViewController+Annotation.swift in Sources */,
 				B6806A0E22F851F2007FED80 /* StudentInformation.swift in Sources */,
 				B6806A0B22F840F6007FED80 /* TableTabbedViewController.swift in Sources */,
 				B6A43A9E22F9A16900F6E31B /* UserLocationRequest.swift in Sources */,
