@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -69,6 +69,7 @@ class AddLocationViewController: UIViewController {
         }
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
+        annotation.title = "\(placemark.name!), \(placemark.country!)"
         DispatchQueue.main.async {
             self.mapView.addAnnotation(annotation)
         }
@@ -86,6 +87,25 @@ class AddLocationViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.setRegion(region, animated: true)
         }
+    }
+    
+    // MARK: MapView Delegate Method
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = .red
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
     }
     
 }
