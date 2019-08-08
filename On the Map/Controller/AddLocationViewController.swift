@@ -45,7 +45,7 @@ class AddLocationViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         } else {
-            print(error!)
+            presentError(title: "Response Error", with: error?.localizedDescription ?? "Could not retrieve response")
         }
     }
     

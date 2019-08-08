@@ -28,7 +28,7 @@ class FindLocationViewController: UIViewController {
         
         CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
             guard let placemarks = placemarks else {
-                print(error!)
+                self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
                 return
             }
             self.placemark = placemarks.first

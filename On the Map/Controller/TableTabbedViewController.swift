@@ -64,7 +64,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     
     func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
         guard let locations = locations else {
-            print(error!)
+            presentError(title: "Error", with: error?.localizedDescription ?? "Could not retrieve data")
             return
         }
         
@@ -72,18 +72,6 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-    
-    // MARK: Alert Controller
-    func showUpdateWarning() {
-        let alertVC = UIAlertController(title: "Your location is already posted", message: "Do you want to update your location?", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Update", style: .default, handler: { (alert) in
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "addLocationFromTable", sender: nil)
-            }
-        }))
-        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
     }
     
 }

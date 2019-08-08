@@ -35,7 +35,7 @@ class MapViewController: UIViewController {
     
     func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
         guard let locations = locations else {
-            print(error!)
+            presentError(title: "Error", with: error?.localizedDescription ?? "Could not retrieve data")
             return
         }
         
@@ -55,17 +55,6 @@ class MapViewController: UIViewController {
         DispatchQueue.main.async {
             self.mapView.addAnnotations(annotations)
         }
-    }
-    
-    func showUpdateWarning() {
-        let alertVC = UIAlertController(title: "Your location is already posted", message: "Do you want to update your location?", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Update", style: .default, handler: { (alert) in
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "addLocation", sender: nil)
-            }
-        }))
-        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
     }
     
 }

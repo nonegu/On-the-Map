@@ -10,6 +10,7 @@
 		B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */; };
 		B67764BF22FC3CA100420041 /* MapViewController+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */; };
 		B67764C122FC434000420041 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764C022FC434000420041 /* ErrorResponse.swift */; };
+		B67764C322FC619C00420041 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764C222FC619C00420041 /* UIViewController+Alerts.swift */; };
 		B68069E422F81164007FED80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E322F81164007FED80 /* AppDelegate.swift */; };
 		B68069E622F81164007FED80 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68069E522F81164007FED80 /* LoginViewController.swift */; };
 		B68069E922F81164007FED80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B68069E722F81164007FED80 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationResponse.swift; sourceTree = "<group>"; };
 		B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Annotation.swift"; sourceTree = "<group>"; };
 		B67764C022FC434000420041 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		B67764C222FC619C00420041 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		B68069E022F81164007FED80 /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B68069E322F81164007FED80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B68069E522F81164007FED80 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
 				B6806A1322F866F2007FED80 /* FindLocationViewController.swift */,
 				B6806A1522F86F93007FED80 /* AddLocationViewController.swift */,
+				B67764C222FC619C00420041 /* UIViewController+Alerts.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				B6806A1622F86F93007FED80 /* AddLocationViewController.swift in Sources */,
 				B6806A1222F85728007FED80 /* LocationResults.swift in Sources */,
 				B68069E622F81164007FED80 /* LoginViewController.swift in Sources */,
+				B67764C322FC619C00420041 /* UIViewController+Alerts.swift in Sources */,
 				B68069E422F81164007FED80 /* AppDelegate.swift in Sources */,
 				B68069FD22F82A44007FED80 /* UdacityClient.swift in Sources */,
 				B6A43A9C22F9998A00F6E31B /* AddLocationResponse.swift in Sources */,
