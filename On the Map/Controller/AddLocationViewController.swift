@@ -13,6 +13,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var finishButton: UIButton!
     
     // MARK: Properties
     var placemark: CLPlacemark!
@@ -22,6 +23,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         
+        finishButton.layer.cornerRadius = 5.0
         setAnnotation(with: placemark)
         setRegion(with: placemark)
     }

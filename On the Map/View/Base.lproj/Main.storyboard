@@ -314,6 +314,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="findButton" destination="3KT-jv-WZ6" id="Mg7-IC-Xz7"/>
                         <outlet property="locationTextField" destination="2pf-wO-nIn" id="taD-lF-dmv"/>
                         <outlet property="mediaTextField" destination="21a-ld-2ZM" id="mTs-bm-TWX"/>
                         <segue destination="4pO-M3-rcd" kind="show" identifier="addLocation" id="fxI-X2-pfp"/>
@@ -364,6 +365,7 @@
                         <viewLayoutGuide key="safeArea" id="L0G-4d-Umd"/>
                     </view>
                     <connections>
+                        <outlet property="finishButton" destination="ZLp-MF-eHr" id="mkz-QK-Ufr"/>
                         <outlet property="mapView" destination="B37-mz-VTx" id="B4g-kP-Zt2"/>
                     </connections>
                 </viewController>
