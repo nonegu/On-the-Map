@@ -26,7 +26,7 @@ class UdacityClient {
             case .login:
                 return Endpoints.base + "/session"
             case .getStudentLocations(let result):
-                return Endpoints.base + "/StudentLocation" + "?limit=\(result)" + "?order=-updatedAt"
+                return Endpoints.base + "/StudentLocation" + "?order=-updatedAt" + "&limit=\(result)"
             case .markUserLocation:
                 return Endpoints.base + "/StudentLocation"
             }
