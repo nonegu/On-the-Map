@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    
+    lazy var activityIndicator = createActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,22 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
+        
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
         UdacityClient.login(username: emailTextField.text!, password: passwordTextField.text!, completion: handleLoginResponse(success:error:))
     }
     
     func handleLoginResponse(success: Bool, error: Error?) {
+        
         if success {
+            activityIndicator.stopAnimating()
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "completeLogin", sender: nil)
             }
         } else {
+            activityIndicator.stopAnimating()
             presentError(title: "Login Failed", with: error?.localizedDescription ?? "")
         }
     }
