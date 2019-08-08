@@ -17,9 +17,15 @@ class LoginViewController: UIViewController {
     
     lazy var activityIndicator = createActivityIndicatorView()
     
+    // MARK: Lifetime Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
