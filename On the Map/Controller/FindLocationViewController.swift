@@ -14,6 +14,8 @@ class FindLocationViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var mediaTextField: UITextField!
+    @IBOutlet weak var findButton: UIButton!
+    
     
     var placemark: CLPlacemark?
     
@@ -21,7 +23,7 @@ class FindLocationViewController: UIViewController {
     lazy var activityIndicator = createActivityIndicatorView()
     
     override func viewDidLoad() {
-        
+        findButton.layer.cornerRadius = 5.0
     }
     
     @IBAction func findLocationPressed(_ sender: UIButton) {
