@@ -14,9 +14,11 @@ class AddLocationViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     
+    // MARK: Properties
     var placemark: CLPlacemark!
     var mediaUrl: String!
     var mapString: String!
+    lazy var activityIndicator = createActivityIndicatorView()
     
     override func viewDidLoad() {
         
@@ -24,10 +26,15 @@ class AddLocationViewController: UIViewController {
         setRegion(with: placemark)
     }
     
+    // MARK: Button Action
     @IBAction func finishPressed(_ sender: UIButton) {
         guard let coordinate = placemark.location?.coordinate else {
             return
         }
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         // Following body requested as hardcoded. However, we could receive the user data from UdacityAPI
         // Storing the objectId of posted user location, would help when updating it
         // UserDefaults could be used for such small data.
@@ -40,6 +47,12 @@ class AddLocationViewController: UIViewController {
     }
     
     func handleUserLocationResponse(success: Bool, error: Error?) {
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+        
         if success {
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
@@ -49,6 +62,7 @@ class AddLocationViewController: UIViewController {
         }
     }
     
+    // MARK: Adding an annotation at the search result.
     func setAnnotation(with placemark: CLPlacemark) {
         guard let coordinate = placemark.location?.coordinate else {
             return
@@ -60,6 +74,7 @@ class AddLocationViewController: UIViewController {
         }
     }
     
+    // MARK: Following will set the region, to focus on the map where the annotation placed.
     func setRegion(with placemark: CLPlacemark) {
         guard let coordinate = placemark.location?.coordinate else {
             return
