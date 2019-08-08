@@ -11,9 +11,4 @@ import Foundation
 struct SessionResponse: Codable {
     let id: String
     let expiration: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case expiration
-    }
 }

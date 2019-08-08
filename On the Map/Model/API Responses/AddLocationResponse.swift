@@ -11,9 +11,4 @@ import Foundation
 struct AddLocationResponse: Codable {
     let createdAt: String
     let objectId: String
-    
-    enum CodingKeys: String, CodingKey {
-        case createdAt
-        case objectId
-    }
 }
