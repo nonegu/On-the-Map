@@ -22,18 +22,21 @@ class FindLocationViewController: UIViewController {
     }
     
     @IBAction func findLocationPressed(_ sender: UIButton) {
-        guard let locationText = locationTextField.text else {
-            return
-        }
         
-        CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
-            guard let placemarks = placemarks else {
-                self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
+        if isTextFieldsFilledIn() {
+            guard let locationText = locationTextField.text else {
                 return
             }
-            self.placemark = placemarks.first
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "addLocation", sender: self)
+            
+            CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
+                guard let placemarks = placemarks else {
+                    self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
+                    return
+                }
+                self.placemark = placemarks.first
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "addLocation", sender: self)
+                }
             }
         }
     }
@@ -48,6 +51,18 @@ class FindLocationViewController: UIViewController {
             addLocationVC.placemark = placemark!
             addLocationVC.mediaUrl = mediaTextField.text
             addLocationVC.mapString = locationTextField.text
+        }
+    }
+    
+    func isTextFieldsFilledIn() -> Bool {
+        if locationTextField.text == "" {
+            presentError(title: "Location can not be empty", with: "Please enter a valid adress")
+            return false
+        } else if mediaTextField.text == "" {
+            presentError(title: "Link can not be empty", with: "Please enter a valid link")
+            return false
+        } else {
+            return true
         }
     }
     
