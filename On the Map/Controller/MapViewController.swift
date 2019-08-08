@@ -14,6 +14,8 @@ class MapViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     
+    // activityIndicator can only be initiated as lazy, since it requires view to be loaded.
+    lazy var activityIndicator = createActivityIndicatorView()
     var annotations = [MKPointAnnotation]()
     
     override func viewDidLoad() {
@@ -21,7 +23,7 @@ class MapViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
+        getStudentLocations()
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
@@ -33,7 +35,7 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func refreshPinsPressed(_ sender: UIBarButtonItem) {
-        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
+        getStudentLocations()
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
@@ -46,7 +48,6 @@ class MapViewController: UIViewController {
         }
         
         LocationModel.studentLocations = locations
-        print(locations)
         updateAnnotations(with: locations)
         
     }
@@ -70,7 +71,17 @@ class MapViewController: UIViewController {
         }
         DispatchQueue.main.async {
             self.mapView.addAnnotations(self.annotations)
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
+    }
+    
+    func getStudentLocations() {
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
 }
