@@ -42,7 +42,7 @@ class FindLocationViewController: UIViewController {
                         self.view.addSubview(self.activityIndicator)
                         UIApplication.shared.endIgnoringInteractionEvents()
                         
-                        self.presentError(title: "Placemark Error", with: error?.localizedDescription ?? "Could not find the place")
+                        self.presentError(title: "Search Error", with: "We did not find any location. Please check for typing or network errors.")
                     }
                     return
                 }
