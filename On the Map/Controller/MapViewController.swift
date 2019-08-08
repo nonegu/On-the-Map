@@ -18,6 +18,8 @@ class MapViewController: UIViewController {
     lazy var activityIndicator = createActivityIndicatorView()
     var annotations = [MKPointAnnotation]()
     
+    
+    // MARK: Lifetime Methods
     override func viewDidLoad() {
         
     }
@@ -26,6 +28,8 @@ class MapViewController: UIViewController {
         getStudentLocations()
     }
     
+    
+    // MARK: Buttons
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
         if LocationModel.userObjectId != nil {
             showUpdateWarning(segueIdentifier: "addLocation")
@@ -39,6 +43,16 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    
+    // MARK: Student Locations' GET Methods
+    func getStudentLocations() {
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
     func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
@@ -74,14 +88,6 @@ class MapViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             UIApplication.shared.endIgnoringInteractionEvents()
         }
-    }
-    
-    func getStudentLocations() {
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-        UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
 }
