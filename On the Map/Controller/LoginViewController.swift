@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loginButton.layer.cornerRadius = 5.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
