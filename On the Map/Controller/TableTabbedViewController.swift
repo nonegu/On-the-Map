@@ -13,9 +13,14 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
+    // MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return LocationModel.studentLocations.count
     }
@@ -34,6 +39,14 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         cell.imageView?.image = pinImage
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        let urlString = cell?.detailTextLabel?.text
+        if let url = URL(string: urlString!) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
 }
