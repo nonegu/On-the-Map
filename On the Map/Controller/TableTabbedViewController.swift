@@ -10,8 +10,13 @@ import UIKit
 
 class TableTabbedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // activityIndicator can only be initiated as lazy, since it requires view to be loaded.
+    lazy var activityIndicator = createActivityIndicatorView()
+    
+    // MARK: Lifetime Methods
     override func viewDidLoad() {
         
     }
@@ -20,6 +25,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
     }
     
+    // MARK: Button Actions
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {
         if LocationModel.userObjectId != nil {
             showUpdateWarning(segueIdentifier: "addLocationFromTable")
@@ -29,9 +35,31 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
+        getStudentLocations()
+    }
+    
+    // MARK: Student Locations' GET Methods
+    func getStudentLocations() {
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         UdacityClient.getStudentLocations(resultOf: 100, completion: handleStudentLocationsResponse(locations:error:))
     }
     
+    func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
+        guard let locations = locations else {
+            presentError(title: "Error", with: error?.localizedDescription ?? "Could not retrieve data")
+            return
+        }
+        
+        LocationModel.studentLocations = locations
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+    }
     
     // MARK: TableView Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,18 +87,6 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
         let urlString = cell?.detailTextLabel?.text
         if let url = URL(string: urlString!) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
-    
-    func handleStudentLocationsResponse(locations: [StudentInformation]?, error: Error?) {
-        guard let locations = locations else {
-            presentError(title: "Error", with: error?.localizedDescription ?? "Could not retrieve data")
-            return
-        }
-        
-        LocationModel.studentLocations = locations
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
         }
     }
     
