@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B622035822FD4400005B9847 /* LoginViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B622035722FD4400005B9847 /* LoginViewController+Keyboard.swift */; };
 		B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */; };
 		B67764BF22FC3CA100420041 /* MapViewController+Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */; };
 		B67764C122FC434000420041 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67764C022FC434000420041 /* ErrorResponse.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B622035722FD4400005B9847 /* LoginViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationResponse.swift; sourceTree = "<group>"; };
 		B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Annotation.swift"; sourceTree = "<group>"; };
 		B67764C022FC434000420041 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B68069E522F81164007FED80 /* LoginViewController.swift */,
+				B622035722FD4400005B9847 /* LoginViewController+Keyboard.swift */,
 				B6806A0822F840E0007FED80 /* MapViewController.swift */,
 				B67764BE22FC3CA100420041 /* MapViewController+Annotation.swift */,
 				B6806A0A22F840F6007FED80 /* TableTabbedViewController.swift */,
@@ -269,6 +272,7 @@
 				B6A43A9C22F9998A00F6E31B /* AddLocationResponse.swift in Sources */,
 				B67764BD22FC326D00420041 /* UpdateLocationResponse.swift in Sources */,
 				B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */,
+				B622035822FD4400005B9847 /* LoginViewController+Keyboard.swift in Sources */,
 				B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */,
 				B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */,
 				B6806A0922F840E0007FED80 /* MapViewController.swift in Sources */,

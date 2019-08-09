@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,12 +21,19 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         loginButton.layer.cornerRadius = 5.0
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        subscribeToKeyboardNotifications()
         emailTextField.text = ""
         passwordTextField.text = ""
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        unsubscribeToKeyboardNotifications()
     }
 
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -62,6 +69,15 @@ class LoginViewController: UIViewController {
                 self.presentError(title: "Login Failed", with: error?.localizedDescription ?? "")
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
 }
