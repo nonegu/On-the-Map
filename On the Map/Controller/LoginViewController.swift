@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
         
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
         
         UdacityClient.login(username: emailTextField.text!, password: passwordTextField.text!, completion: handleLoginResponse(success:error:))
     }
@@ -51,11 +52,15 @@ class LoginViewController: UIViewController {
         if success {
             activityIndicator.stopAnimating()
             DispatchQueue.main.async {
+                UIApplication.shared.endIgnoringInteractionEvents()
                 self.performSegue(withIdentifier: "completeLogin", sender: nil)
             }
         } else {
             activityIndicator.stopAnimating()
-            presentError(title: "Login Failed", with: error?.localizedDescription ?? "")
+            DispatchQueue.main.async {
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.presentError(title: "Login Failed", with: error?.localizedDescription ?? "")
+            }
         }
     }
     
