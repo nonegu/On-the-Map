@@ -43,13 +43,22 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         UdacityClient.logout { (success, error) in
             if success {
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {
-                self.presentError(title: "Logout Error", with: error?.localizedDescription ?? "")
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.presentError(title: "Logout Error", with: error?.localizedDescription ?? "")
+                }
             }
         }
     }
