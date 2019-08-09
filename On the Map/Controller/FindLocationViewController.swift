@@ -22,6 +22,7 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
     // activityIndicator can only be initiated as lazy, since it requires view to be loaded.
     lazy var activityIndicator = createActivityIndicatorView()
     
+    // MARK: Lifetime Methods
     override func viewDidLoad() {
         locationTextField.delegate = self
         mediaTextField.delegate = self
@@ -36,22 +37,20 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
         unsubscribeToKeyboardNotifications()
     }
     
+    // MARK: Button Actions
     @IBAction func findLocationPressed(_ sender: UIButton) {
         
         if isTextFieldsFilledIn() {
-            guard let locationText = locationTextField.text else {
-                return
-            }
             
             activityIndicator.startAnimating()
             view.addSubview(activityIndicator)
             UIApplication.shared.beginIgnoringInteractionEvents()
             
-            CLGeocoder().geocodeAddressString(locationText) { (placemarks, error) in
+            // MARK: the text of locationTextField.text already checked, so we can safely force unwrap it.
+            CLGeocoder().geocodeAddressString((locationTextField.text)!) { (placemarks, error) in
                 guard let placemarks = placemarks else {
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
-                        self.view.addSubview(self.activityIndicator)
                         UIApplication.shared.endIgnoringInteractionEvents()
                         
                         self.presentError(title: "Search Error", with: "We did not find any location. Please check for typing or network errors.")
@@ -61,7 +60,6 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
                 self.placemark = placemarks.first
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
-                    self.view.addSubview(self.activityIndicator)
                     UIApplication.shared.endIgnoringInteractionEvents()
                     
                     self.performSegue(withIdentifier: "addLocation", sender: self)
@@ -74,6 +72,8 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    // MARK: Sending necessary information to AddLocationView controller
+    // to show the placemark on the map and to create the body of the post request.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addLocation" {
             let addLocationVC = segue.destination as! AddLocationViewController

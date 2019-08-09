@@ -44,6 +44,7 @@ class MapViewController: UIViewController {
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         activityIndicator.startAnimating()
+        // activity indicator already added to the view, when we called the getStudentMethod
         UIApplication.shared.beginIgnoringInteractionEvents()
         
         UdacityClient.logout { (success, error) in
@@ -84,6 +85,8 @@ class MapViewController: UIViewController {
         
     }
     
+    // MARK: First, we remove the existing annotations from the map.
+    // Then add create annotations from received locations and add them on the map.
     func updateAnnotations(with locations: [StudentInformation]) {
     
         DispatchQueue.main.async {

@@ -22,6 +22,7 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getStudentLocations()
         tableView.reloadData()
     }
     
