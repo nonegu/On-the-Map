@@ -20,10 +20,6 @@ class MapViewController: UIViewController {
     
     
     // MARK: Lifetime Methods
-    override func viewDidLoad() {
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         getStudentLocations()
     }

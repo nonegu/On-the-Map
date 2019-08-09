@@ -17,10 +17,6 @@ class TableTabbedViewController: UIViewController, UITableViewDataSource, UITabl
     lazy var activityIndicator = createActivityIndicatorView()
     
     // MARK: Lifetime Methods
-    override func viewDidLoad() {
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         getStudentLocations()
         tableView.reloadData()
