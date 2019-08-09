@@ -13,11 +13,7 @@ extension FindLocationViewController {
     // MARK: Keyboard shifting methods
     @objc func keyboardWillShow(_ notification: Notification) {
         
-        if mediaTextField.isEditing {
-            view.frame.origin.y = -75
-        } else {
-            view.frame.origin.y = 0
-        }
+        view.frame.origin.y = -75
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
