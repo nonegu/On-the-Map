@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class FindLocationViewController: UIViewController {
+class FindLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var locationTextField: UITextField!
@@ -23,7 +23,17 @@ class FindLocationViewController: UIViewController {
     lazy var activityIndicator = createActivityIndicatorView()
     
     override func viewDidLoad() {
+        locationTextField.delegate = self
+        mediaTextField.delegate = self
         findButton.layer.cornerRadius = 5.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        unsubscribeToKeyboardNotifications()
     }
     
     @IBAction func findLocationPressed(_ sender: UIButton) {
@@ -83,6 +93,16 @@ class FindLocationViewController: UIViewController {
         } else {
             return true
         }
+    }
+    
+    // MARK: Textfield Methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
 }
