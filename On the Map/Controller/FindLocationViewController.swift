@@ -24,6 +24,7 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Lifetime Methods
     override func viewDidLoad() {
+        super.viewDidLoad()
         locationTextField.delegate = self
         mediaTextField.delegate = self
         findButton.layer.cornerRadius = 5.0
