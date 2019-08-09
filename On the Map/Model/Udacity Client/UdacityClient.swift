@@ -12,6 +12,9 @@ class UdacityClient {
     
     struct Auth {
         static var sessionId = ""
+        static var userId = ""
+        static var userFirstName = ""
+        static var userLastName = ""
     }
     
     enum Endpoints {
@@ -22,6 +25,7 @@ class UdacityClient {
         case markUserLocation
         case updateUserLocation
         case logout
+        case getUserData
         
         var stringValue: String {
             switch self {
@@ -35,6 +39,8 @@ class UdacityClient {
                 return Endpoints.base + "/StudentLocation/\(LocationModel.userObjectId!)"
             case .logout:
                 return Endpoints.base + "/session"
+            case .getUserData:
+                return Endpoints.base + "/users/\(Auth.userId)"
             }
         }
         
@@ -67,6 +73,8 @@ class UdacityClient {
             do {
                 let response = try decoder.decode(LoginResponse.self, from: newData)
                 Auth.sessionId = response.session.id
+                Auth.userId = response.account.key
+                print(Auth.userId)
                 DispatchQueue.main.async {
                     completion(true, nil)
                 }
@@ -124,6 +132,32 @@ class UdacityClient {
                 DispatchQueue.main.async {
                     completion(false, error)
                 }
+            }
+        }
+        task.resume()
+    }
+    
+    // Following Method can not be used until the UdacityAPI fixed.
+    class func getUserData(completion: @escaping (Bool, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.getUserData.url) { (data, response, error) in
+            guard let data = data else {
+                completion(false, error)
+                return
+            }
+            
+            // According to the documentation
+            // first 5 characters should be removed from the data
+            let range = 5..<data.count
+            let newData = data.subdata(in: range)
+            
+            let decoder = JSONDecoder()
+            do {
+                let response = try decoder.decode(UserDataResponse.self, from: newData)
+                Auth.userFirstName = response.user.firstName
+                Auth.userLastName = response.user.lastName
+                completion(true, nil)
+            } catch {
+                completion(false, error)
             }
         }
         task.resume()

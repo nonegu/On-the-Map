@@ -32,6 +32,7 @@
 		B6806A1222F85728007FED80 /* LocationResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1122F85728007FED80 /* LocationResults.swift */; };
 		B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1322F866F2007FED80 /* FindLocationViewController.swift */; };
 		B6806A1622F86F93007FED80 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6806A1522F86F93007FED80 /* AddLocationViewController.swift */; };
+		B69F3E6822FE066F008CCE29 /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69F3E6722FE066F008CCE29 /* UserDataResponse.swift */; };
 		B6A43A9C22F9998A00F6E31B /* AddLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A43A9B22F9998A00F6E31B /* AddLocationResponse.swift */; };
 		B6A43A9E22F9A16900F6E31B /* UserLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A43A9D22F9A16900F6E31B /* UserLocationRequest.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		B6806A1122F85728007FED80 /* LocationResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResults.swift; sourceTree = "<group>"; };
 		B6806A1322F866F2007FED80 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
 		B6806A1522F86F93007FED80 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		B69F3E6722FE066F008CCE29 /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
 		B6A43A9B22F9998A00F6E31B /* AddLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationResponse.swift; sourceTree = "<group>"; };
 		B6A43A9D22F9A16900F6E31B /* UserLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 				B67764BC22FC326D00420041 /* UpdateLocationResponse.swift */,
 				B67764C022FC434000420041 /* ErrorResponse.swift */,
 				B67764C422FCAEB300420041 /* LogoutResponse.swift */,
+				B69F3E6722FE066F008CCE29 /* UserDataResponse.swift */,
 			);
 			path = "API Responses";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B6806A0722F82F98007FED80 /* SessionResponse.swift in Sources */,
 				B622035822FD4400005B9847 /* LoginViewController+Keyboard.swift in Sources */,
 				B6806A1022F855E8007FED80 /* LocationModel.swift in Sources */,
+				B69F3E6822FE066F008CCE29 /* UserDataResponse.swift in Sources */,
 				B6806A1422F866F2007FED80 /* FindLocationViewController.swift in Sources */,
 				B6806A0922F840E0007FED80 /* MapViewController.swift in Sources */,
 				B68069FF22F82AAB007FED80 /* LoginRequest.swift in Sources */,
