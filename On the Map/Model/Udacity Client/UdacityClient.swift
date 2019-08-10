@@ -74,7 +74,6 @@ class UdacityClient {
                 let response = try decoder.decode(LoginResponse.self, from: newData)
                 Auth.sessionId = response.session.id
                 Auth.userId = response.account.key
-                print(Auth.userId)
                 DispatchQueue.main.async {
                     completion(true, nil)
                 }

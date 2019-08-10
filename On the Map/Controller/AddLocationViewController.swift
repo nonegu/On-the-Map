@@ -26,10 +26,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         finishButton.layer.cornerRadius = 5.0
         setAnnotation(with: placemark)
         setRegion(with: placemark)
-        
-        // Since the Udacity API has an issue regarding the userDataResponse, the UserLocationRequest created by hardcoding.
-        // There is a topic in Knowledge section about this issue and it has not been corrected yet.
-        // UdacityClient.getUserData(completion: handleUserDataResponse(success:error:))
     }
     
     // MARK: Button Action
@@ -42,10 +38,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         UIApplication.shared.beginIgnoringInteractionEvents()
         
         // When the UdacityAPI is corrected, following can be used as the body.
-//        let body = UserLocationRequest(uniqueKey: "1234", firstName: UdacityClient.Auth.userFirstName, lastName: UdacityClient.Auth.userLastName, mapString: mapString, mediaURL: mediaUrl, latitude: coordinate.latitude, longitude: coordinate.longitude)
-        
-        // Following body requested as hardcoded.
-        let body = UserLocationRequest(uniqueKey: "1234", firstName: "Hugh", lastName: "Laurie", mapString: mapString, mediaURL: mediaUrl, latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let body = UserLocationRequest(uniqueKey: UdacityClient.Auth.userId, firstName: UdacityClient.Auth.userFirstName, lastName: UdacityClient.Auth.userLastName, mapString: mapString, mediaURL: mediaUrl, latitude: coordinate.latitude, longitude: coordinate.longitude)
         if LocationModel.userObjectId == nil {
             UdacityClient.markUserLocation(body: body, completion: handleUserLocationResponse(success:error:))
         } else {
@@ -68,13 +61,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
             presentError(title: "Response Error", with: error?.localizedDescription ?? "Could not retrieve response")
         }
     }
-    
-//    func handleUserDataResponse(success: Bool, error: Error?) {
-//        
-//        if error != nil {
-//            presentError(title: "User Data Error", with: "Can not retrieve user data.")
-//        }
-//    }
     
     // MARK: Adding an annotation at the search result.
     func setAnnotation(with placemark: CLPlacemark) {

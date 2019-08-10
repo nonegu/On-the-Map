@@ -28,6 +28,14 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
         locationTextField.delegate = self
         mediaTextField.delegate = self
         findButton.layer.cornerRadius = 5.0
+        
+        // Preparing UI before the userData request
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        // Since the Udacity API has an issue regarding the userDataResponse, it will return an error.
+        // There is a topic in Knowledge section about this issue and it has not been corrected yet.
+        UdacityClient.getUserData(completion: handleUserDataResponse(success:error:))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +101,19 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
             return false
         } else {
             return true
+        }
+    }
+    
+    func handleUserDataResponse(success: Bool, error: Error?) {
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
+        if error != nil {
+            DispatchQueue.main.async {
+                self.presentError(title: "User Data Error", with: "Can not retrieve user data, your name will not be posted with the location. Try to re-login.")
+            }
         }
     }
     
