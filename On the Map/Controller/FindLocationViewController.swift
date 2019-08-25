@@ -33,8 +33,8 @@ class FindLocationViewController: UIViewController, UITextFieldDelegate {
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         UIApplication.shared.beginIgnoringInteractionEvents()
-        // Since the Udacity API has an issue regarding the userDataResponse, it will return an error.
-        // There is a topic in Knowledge section about this issue and it has not been corrected yet.
+        
+        // Getting the user data before posting a new location
         UdacityClient.getUserData(completion: handleUserDataResponse(success:error:))
     }
     

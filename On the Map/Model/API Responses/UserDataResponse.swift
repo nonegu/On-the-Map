@@ -9,10 +9,6 @@
 import Foundation
 
 struct UserDataResponse: Codable {
-    let user: User
-}
-
-struct User: Codable {
     let lastName: String
     let firstName: String
     

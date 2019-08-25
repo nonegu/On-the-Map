@@ -37,7 +37,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         view.addSubview(activityIndicator)
         UIApplication.shared.beginIgnoringInteractionEvents()
         
-        // When the UdacityAPI is corrected, following can be used as the body.
         let body = UserLocationRequest(uniqueKey: UdacityClient.Auth.userId, firstName: UdacityClient.Auth.userFirstName, lastName: UdacityClient.Auth.userLastName, mapString: mapString, mediaURL: mediaUrl, latitude: coordinate.latitude, longitude: coordinate.longitude)
         if LocationModel.userObjectId == nil {
             UdacityClient.markUserLocation(body: body, completion: handleUserLocationResponse(success:error:))

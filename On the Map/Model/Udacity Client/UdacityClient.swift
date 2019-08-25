@@ -53,6 +53,7 @@ class UdacityClient {
         var request = URLRequest(url: Endpoints.login.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         let body = LoginRequest(udacity: AccountRequest(username: username, password: password))
         request.httpBody = try! JSONEncoder().encode(body)
         
@@ -136,7 +137,6 @@ class UdacityClient {
         task.resume()
     }
     
-    // Following Method can not be used until the UdacityAPI fixed.
     class func getUserData(completion: @escaping (Bool, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: Endpoints.getUserData.url) { (data, response, error) in
             guard let data = data else {
@@ -152,8 +152,8 @@ class UdacityClient {
             let decoder = JSONDecoder()
             do {
                 let response = try decoder.decode(UserDataResponse.self, from: newData)
-                Auth.userFirstName = response.user.firstName
-                Auth.userLastName = response.user.lastName
+                Auth.userFirstName = response.firstName
+                Auth.userLastName = response.lastName
                 completion(true, nil)
             } catch {
                 completion(false, error)
