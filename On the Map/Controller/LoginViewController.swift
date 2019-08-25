@@ -27,12 +27,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         subscribeToKeyboardNotifications()
         emailTextField.text = ""
         passwordTextField.text = ""
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
         unsubscribeToKeyboardNotifications()
     }
 
